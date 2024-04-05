@@ -94,22 +94,22 @@ export default function Piece({ id = -1, left = "0", top = "0", opt, comm, abs =
             styles.padding = undefined;
         }
         if(comm?.textOpts.align){
-            if(opt?.textOpts.vert == "t"){
+            if(opt?.textOpts.vert === "t"){
                 styles.alignItems = "start"
             }
-            if(opt?.textOpts.vert == "c"){
+            if(opt?.textOpts.vert === "c"){
                 styles.alignItems = "center"
             }
-            if(opt?.textOpts.vert == "b"){
+            if(opt?.textOpts.vert === "b"){
                 styles.alignItems = "end"
             }
-            if(opt?.textOpts.hort == "l"){
+            if(opt?.textOpts.hort === "l"){
                 styles.justifyContent = "start"
             }
-            if(opt?.textOpts.hort == "c"){
+            if(opt?.textOpts.hort === "c"){
                 styles.justifyContent = "center"
             }
-            if(opt?.textOpts.hort == "r"){
+            if(opt?.textOpts.hort === "r"){
                 styles.justifyContent = "end"
             }
         } else {
@@ -124,14 +124,14 @@ export default function Piece({ id = -1, left = "0", top = "0", opt, comm, abs =
         <div ref={pieceRef} style={styles} id={`piece_${id}`}
             className={clsx(
                 {
-                    "rounded-none": opt?.rounded == "",
-                    "rounded-sm": opt?.rounded == "sm",
-                    "rounded-md": opt?.rounded == "md",
-                    "rounded-lg": opt?.rounded == "lg",
-                    "rounded-xl": opt?.rounded == "xl",
-                    "rounded-2xl": opt?.rounded == "2xl",
-                    "": typeof opt?.rounded == "number",
-                    "rounded-full": opt?.rounded == "full",
+                    "rounded-none": opt?.rounded === "",
+                    "rounded-sm": opt?.rounded === "sm",
+                    "rounded-md": opt?.rounded === "md",
+                    "rounded-lg": opt?.rounded === "lg",
+                    "rounded-xl": opt?.rounded === "xl",
+                    "rounded-2xl": opt?.rounded === "2xl",
+                    "": typeof opt?.rounded === "number",
+                    "rounded-full": opt?.rounded === "full",
                 },
                 {
                     "cursor-pointer": pointer,

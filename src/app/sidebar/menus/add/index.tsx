@@ -42,7 +42,7 @@ export default function AddMenu() {
 
     function appendOpt(o: PieceOptions, c: PieceCommutationOptions) {
         for (let i = 0; i < 6 * 4; i++) {
-            if (opts[i] == undefined) {
+            if (opts[i] === undefined) {
                 setOpts((opts) => {
                     opts[i] = o;
                     return opts;
@@ -97,5 +97,5 @@ export default function AddMenu() {
 }
 
 function PageButton({ setPage, id, cur }: { setPage: React.Dispatch<React.SetStateAction<number>>, id: number, cur: number }) {
-    return <button title={`Page ${id}`} onClick={() => setPage(id)} className={clsx("px-3 border-b-[2px] border-x-[2px] border-[#7C7A85] hover:bg-[#7C7A85]", { "bg-[#625F69]": cur == id })}>{id}</button>
+    return <button title={`Page ${id}`} onClick={() => setPage(id)} className={clsx("px-3 border-b-[2px] border-x-[2px] border-[#7C7A85] hover:bg-[#7C7A85]", { "bg-[#625F69]": cur === id })}>{id}</button>
 }

@@ -1,10 +1,7 @@
-import ReactCodeMirror from "@uiw/react-codemirror";
-import store from "../../store";
 import Field from "./field";
 import { useState } from "react";
 import Result from "./result";
 import ConfigMenu from "./config";
-import Options from '../sidebar/menus/add/ui/options';
 
 export default function WorkSpace(){
 

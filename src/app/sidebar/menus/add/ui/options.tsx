@@ -23,7 +23,7 @@ export default function Options({ updateOpts, current, comm, close, append }: { 
 
     function checkRadiusType(r: any) {
         let s = ["sm", "md", "lg", "xl", "2xl", "full"];
-        if (r == "") {
+        if (r === "") {
             return "";
         }
         if (Number.isNaN(Number(r))) {
@@ -36,7 +36,7 @@ export default function Options({ updateOpts, current, comm, close, append }: { 
         if (!Number.isNaN(Number(r))) {
             return Number(r);
         }
-        if (typeof r == "undefined") {
+        if (typeof r === "undefined") {
             return undefined;
         }
     }
@@ -63,16 +63,16 @@ export default function Options({ updateOpts, current, comm, close, append }: { 
             <Preview append={append} comm={commutation} opt={cur} save={updateOpts} />
             <div className="flex flex-col h-full border-[#7C7A85] border-t-[2px] py-1 px-[3%]">
                 <div className='flex flex-row w-full gap-1'>
-                    {optPage == 0 ? <span>Options</span> : <></>}
-                    {optPage == 1 ? <span>Content</span> : <></>}
-                    {optPage == 2 ? <span>Classes</span> : <></>}
-                    {(optPage == 0 || optPage == 2) ? <button onClick={() => setOptPage(1)} title='Content' className='border-b-[2px] border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>cont</button> : <></>}
-                    {(optPage == 1 || optPage == 2) ? <button onClick={() => setOptPage(0)} title='Options' className='border-b-[2px] border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>opts</button> : <></>}
-                    {(optPage == 0 || optPage == 1) ? <button onClick={() => setOptPage(2)} title='Classes' className='border-b-[2px] border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>clss</button> : <></>}
+                    {optPage === 0 ? <span>Options</span> : <></>}
+                    {optPage === 1 ? <span>Content</span> : <></>}
+                    {optPage === 2 ? <span>Classes</span> : <></>}
+                    {(optPage === 0 || optPage === 2) ? <button onClick={() => setOptPage(1)} title='Content' className='border-b-[2px] border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>cont</button> : <></>}
+                    {(optPage === 1 || optPage === 2) ? <button onClick={() => setOptPage(0)} title='Options' className='border-b-[2px] border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>opts</button> : <></>}
+                    {(optPage === 0 || optPage === 1) ? <button onClick={() => setOptPage(2)} title='Classes' className='border-b-[2px] border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>clss</button> : <></>}
                     <input value={cur.name} spellCheck="false" onChange={(e) => setCur(prev => { return { ...prev, name: e.target.value } })}
                         className='bg-[#49474E] pl-1 w-[40%] border-[#7C7A85] border' />
                 </div>
-                {optPage == 0 ?
+                {optPage === 0 ?
                     <div className="flex pt-2 flex-col gap-3 px-[3%]">
                         <div className="grid grid-cols-2 gap-2">
                             <div className="flex w-fit flex-row gap-2 ">
@@ -114,14 +114,14 @@ export default function Options({ updateOpts, current, comm, close, append }: { 
                             <input disabled={!commutation.rounded} autoComplete="new-password" value={cur?.rounded} onChange={(e) => setCur(prev => { return { ...prev, rounded: checkRadiusType(e.target.value) } })}
                                 className={clsx({"bg-[#3C393F] text-[#2B292D]": !commutation.rounded}, {"bg-[#625F69]": commutation.rounded},"ml-auto pl-1 border border-[#7C7A85] w-[35%]")} />
                             <div className='grid grid-cols-2'>
-                                <button title='Round top left' onClick={() => setRSides(rSides => { return { ...rSides, tl: !rSides.tl } })} className={clsx({ 'rounded-tl-md': rSides.tl, 'border-[#49474E]': typeof cur.rounded == "string", 'border-[#7C7A85]': typeof cur.rounded == "number" }, 'ml-auto border-l-[2px] text-[12px] border-t-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
-                                <button title='Round top right' onClick={() => setRSides(rSides => { return { ...rSides, tr: !rSides.tr } })} className={clsx({ 'rounded-tr-md': rSides.tr, 'border-[#49474E]': typeof cur.rounded == "string", 'border-[#7C7A85]': typeof cur.rounded == "number" }, 'ml-auto border-r-[2px] text-[12px] border-t-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
-                                <button title='Round bottom left' onClick={() => setRSides(rSides => { return { ...rSides, bl: !rSides.bl } })} className={clsx({ 'rounded-bl-md': rSides.bl, 'border-[#49474E]': typeof cur.rounded == "string", 'border-[#7C7A85]': typeof cur.rounded == "number" }, 'ml-auto border-l-[2px] text-[12px] border-b-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
-                                <button title='Round bottom right' onClick={() => setRSides(rSides => { return { ...rSides, br: !rSides.br } })} className={clsx({ 'rounded-br-md': rSides.br, 'border-[#49474E]': typeof cur.rounded == "string", 'border-[#7C7A85]': typeof cur.rounded == "number" }, 'ml-auto border-r-[2px] text-[12px] border-b-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
+                                <button title='Round top left' onClick={() => setRSides(rSides => { return { ...rSides, tl: !rSides.tl } })} className={clsx({ 'rounded-tl-md': rSides.tl, 'border-[#49474E]': typeof cur.rounded === "string", 'border-[#7C7A85]': typeof cur.rounded === "number" }, 'ml-auto border-l-[2px] text-[12px] border-t-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
+                                <button title='Round top right' onClick={() => setRSides(rSides => { return { ...rSides, tr: !rSides.tr } })} className={clsx({ 'rounded-tr-md': rSides.tr, 'border-[#49474E]': typeof cur.rounded === "string", 'border-[#7C7A85]': typeof cur.rounded === "number" }, 'ml-auto border-r-[2px] text-[12px] border-t-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
+                                <button title='Round bottom left' onClick={() => setRSides(rSides => { return { ...rSides, bl: !rSides.bl } })} className={clsx({ 'rounded-bl-md': rSides.bl, 'border-[#49474E]': typeof cur.rounded === "string", 'border-[#7C7A85]': typeof cur.rounded === "number" }, 'ml-auto border-l-[2px] text-[12px] border-b-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
+                                <button title='Round bottom right' onClick={() => setRSides(rSides => { return { ...rSides, br: !rSides.br } })} className={clsx({ 'rounded-br-md': rSides.br, 'border-[#49474E]': typeof cur.rounded === "string", 'border-[#7C7A85]': typeof cur.rounded === "number" }, 'ml-auto border-r-[2px] text-[12px] border-b-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
                             </div>
                         </div>
                     </div> : <></>}
-                {optPage == 1 ?
+                {optPage === 1 ?
                     <div className="flex pt-2 flex-col gap-3 px-[3%]">
                         <div className='flex flex-row w-full'>
                             <div>
@@ -152,13 +152,13 @@ export default function Options({ updateOpts, current, comm, close, append }: { 
                                 <span>Vertical</span>
                                 <div className={clsx({"opacity-0": !commutation.textOpts.align}, 'flex flex-col')}>
                                     <button disabled={!commutation.textOpts.align} onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "t"; return { ...prev, textOpts: a } })} className='border-[#7C7A85] hover:bg-[#7C7A85] border-x-[2px] border-t-[2px] rounded-t-lg p-1 w-fit'>
-                                        <Dot show={current.textOpts.vert == "t"} />
+                                        <Dot show={current.textOpts.vert === "t"} />
                                     </button>
                                     <button disabled={!commutation.textOpts.align} onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "c"; return { ...prev, textOpts: a } })} className='border-[#7C7A85] hover:bg-[#7C7A85] border-x-[2px] p-1 w-fit'>
-                                        <Dot show={current.textOpts.vert == "c"} />
+                                        <Dot show={current.textOpts.vert === "c"} />
                                     </button>
                                     <button disabled={!commutation.textOpts.align} onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "b"; return { ...prev, textOpts: a } })} className='border-[#7C7A85] hover:bg-[#7C7A85] border-x-[2px] border-b-[2px] rounded-b-lg p-1 w-fit'>
-                                        <Dot show={current.textOpts.vert == "b"} />
+                                        <Dot show={current.textOpts.vert === "b"} />
                                     </button>
                                 </div>
                             </div>
@@ -166,19 +166,19 @@ export default function Options({ updateOpts, current, comm, close, append }: { 
                                 <span>Horizontal</span>
                                 <div className={clsx({"opacity-0": !commutation.textOpts.align},'flex flex-row')}>
                                     <button disabled={!commutation.textOpts.align} onClick={(e) => setCur(prev => { let a = prev.textOpts; a.hort = "l"; return { ...prev, textOpts: a } })} className='border-[#7C7A85] hover:bg-[#7C7A85] border-y-[2px] border-l-[2px] rounded-l-lg p-1 w-fit'>
-                                        <Dot show={current.textOpts.hort == "l"} />
+                                        <Dot show={current.textOpts.hort === "l"} />
                                     </button>
                                     <button disabled={!commutation.textOpts.align} onClick={(e) => setCur(prev => { let a = prev.textOpts; a.hort = "c"; return { ...prev, textOpts: a } })} className='border-[#7C7A85] hover:bg-[#7C7A85] border-y-[2px] p-1 w-fit'>
-                                        <Dot show={current.textOpts.hort == "c"} />
+                                        <Dot show={current.textOpts.hort === "c"} />
                                     </button>
                                     <button disabled={!commutation.textOpts.align} onClick={(e) => setCur(prev => { let a = prev.textOpts; a.hort = "r"; return { ...prev, textOpts: a } })} className='border-[#7C7A85] hover:bg-[#7C7A85] border-y-[2px] border-r-[2px] rounded-r-lg p-1 w-fit'>
-                                        <Dot show={current.textOpts.hort == "r"} />
+                                        <Dot show={current.textOpts.hort === "r"} />
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div> : <></>}
-                {optPage == 2 ?
+                {optPage === 2 ?
                     <CSSClasses cur={cur} set={setCur} /> : <></>}
             </div>
         </>

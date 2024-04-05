@@ -4,7 +4,6 @@ import React from "react";
 import Piece from "../../entities/Piece";
 import { observer } from "mobx-react-lite"
 import Menu from "./menu";
-import { PieceOptions } from "../../types";
 
 function Field() {
 
@@ -12,7 +11,6 @@ function Field() {
     const fieldRect = useRef<DOMRect | null>(null);
     const dragEl = useRef<HTMLDivElement | null>(null);
     const dragSetArr = useRef<HTMLDivElement[]>([]);
-    const dragSetEl = useRef<HTMLDivElement | null>(null);
     const shift = useRef<{ x: number, y: number }>({ x: 0, y: 0 });
     const [showMenu, setShowMenu] = useState(false);
 
@@ -93,7 +91,7 @@ function Field() {
             menuH += 55;
         }
         if (fieldRect.current) {
-            if (dir == "x") {
+            if (dir === "x") {
                 let x: number = 0;
                 if (coords.right - fieldRect.current.x < fieldRect.current.width / 2) {
                     x = coords.right + 4 - fieldRect.current.x;
@@ -112,7 +110,7 @@ function Field() {
                 }
                 return x;
             }
-            if (dir == "y") {
+            if (dir === "y") {
                 let y: number = 0;
                 if (coords.top - fieldRect.current.y < fieldRect.current.height / 2) {
                     y = coords.top - fieldRect.current.y - 1;
@@ -135,7 +133,7 @@ function Field() {
         if (fieldRef.current) {
             fieldRect.current = fieldRef.current.getBoundingClientRect()
         }
-        if (e.button != 0) {
+        if (e.button !== 0) {
             return;
         }
         let target: HTMLElement | null;
@@ -151,17 +149,17 @@ function Field() {
             return
         }
         div = target;
-        if (div.id == "set") {
+        if (div.id === "set") {
             setShowMenu(false);
             selectSet(div, e);
             return;
         }
-        if (div.id.split("_")[0] == "piece") {
+        if (div.id.split("_")[0] === "piece") {
             setShowMenu(false);
             selectSingle(div, e);
             return;
         }
-        if (div.id == "field") {
+        if (div.id === "field") {
             setShowMenu(false);
             selectMany(div, e)
             return
@@ -245,7 +243,7 @@ function Field() {
     }
 
     function dragSet(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-        if (!dragSetArr.current || !selectedSetRef.current || dragSetArr.current.length == 0 || !fieldRect.current) {
+        if (!dragSetArr.current || !selectedSetRef.current || dragSetArr.current.length === 0 || !fieldRect.current) {
             return;
         }
         let rect = fieldRect.current
@@ -322,7 +320,7 @@ function Field() {
     }
 
     function clearSelected() {
-        if (selectedSetRef.current && dragSetArr.current.length == 0) {
+        if (selectedSetRef.current && dragSetArr.current.length === 0) {
             selectedSetRef.current.style.width = "0px";
             selectedSetRef.current.style.height = "0px";
             selectedSetRef.current.style.left = "-5000px";

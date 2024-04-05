@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import store from "../../../../store";
-import CodeMirror, { ReactCodeMirrorRef } from '@uiw/react-codemirror';
+import CodeMirror from '@uiw/react-codemirror';
 import {css} from "@codemirror/lang-css"
 import { observer } from "mobx-react-lite";
 import clsx from "clsx";
@@ -9,7 +9,6 @@ function StyleMenu() {
 
     const [rules, setRules] = useState(store.getRules());
     const [curId, setCurId] = useState(-1)
-    const editorRef = useRef<ReactCodeMirrorRef>(null)
     const [edit, setEdit] = useState(false)
     const [editVal, setEditVal] = useState(".test { color : red;}")
     const saveText = useRef<string>("")
@@ -26,7 +25,7 @@ function StyleMenu() {
             alert("Rule not found")
             return
         }
-        if(match.length != 1){
+        if(match.length !== 1){
             alert("Only one class at a time")
             return
         }
@@ -98,7 +97,7 @@ function StyleMenu() {
             <span className="border-t-[1px] py-1 w-full text-center border-[#625F69]">Rules list</span>
             <div className="flex p-2 flex-wrap overflow-y-auto h-auto max-h-[350px] w-full gap-1">
                 {rules.map((rule, key)=>{
-                    return <CssRuleButton select={curId == key} edit={editRule} key={key} id={key} rule={rule.cssText}/>
+                    return <CssRuleButton select={curId === key} edit={editRule} key={key} id={key} rule={rule.cssText}/>
                 })}
             </div>
         </div>

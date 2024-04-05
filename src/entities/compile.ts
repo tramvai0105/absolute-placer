@@ -29,11 +29,11 @@ export default class CompileCss{
 
     border(){
         let borders = this.options.borders;
-        if(this.options.border == 0){
+        if(this.options.border === 0){
             return;
         }
         if(this.config.tailwind){
-            if(!Object.values(borders).some(b=> b == false)){
+            if(!Object.values(borders).some(b=> b === false)){
                 this.classList.push(`border-[${this.options.border}px]`)
                 return;
             }
@@ -109,13 +109,13 @@ export default class CompileCss{
 
     alignVert(){
         if(this.config.tailwind){
-            if(this.options.textOpts.vert == "c"){
+            if(this.options.textOpts.vert === "c"){
                 this.classList.push("items-center")
             }
-            if(this.options.textOpts.vert == "t"){
+            if(this.options.textOpts.vert === "t"){
                 this.classList.push("items-start")
             }
-            if(this.options.textOpts.vert == "b"){
+            if(this.options.textOpts.vert === "b"){
                 this.classList.push("items-end")
             }
             return;
@@ -124,15 +124,15 @@ export default class CompileCss{
 
     alignHort(){
         if(this.config.tailwind){
-            if(this.options.textOpts.hort == "l"){
+            if(this.options.textOpts.hort === "l"){
                 this.classList.push("justify-start")
                 return;
             }
-            if(this.options.textOpts.hort == "c"){
+            if(this.options.textOpts.hort === "c"){
                 this.classList.push("justify-center")
                 return;
             }
-            if(this.options.textOpts.hort == "r"){
+            if(this.options.textOpts.hort === "r"){
                 this.classList.push("justify-end")
                 return;
             }
@@ -156,9 +156,9 @@ export default class CompileCss{
 
     rounded(){
         if(this.config.tailwind){
-            if(typeof this.options.rounded == "number"){
+            if(typeof this.options.rounded === "number"){
                 let rounds = this.options.rounds;
-                if(!Object.values(rounds).some(b=> b == false)){
+                if(!Object.values(rounds).some(b=> b === false)){
                     this.classList.push(`rounded-[${this.options.rounded}px]`)
                     return;
                 }
@@ -211,31 +211,31 @@ export default class CompileCss{
                     return;
                 }
             }
-            if(this.options.rounded == ""){
+            if(this.options.rounded === ""){
                 this.classList.push(`rounded-none`)
                 return;
             }
-            if(this.options.rounded == "full"){
+            if(this.options.rounded === "full"){
                 this.classList.push(`rounded-full`)
                 return;
             }
-            if(this.options.rounded == "sm"){
+            if(this.options.rounded === "sm"){
                 this.classList.push(`rounded-sm`)
                 return;
             }
-            if(this.options.rounded == "md"){
+            if(this.options.rounded === "md"){
                 this.classList.push(`rounded-md`)
                 return;
             }
-            if(this.options.rounded == "lg"){
+            if(this.options.rounded === "lg"){
                 this.classList.push(`rounded-lg`)
                 return;
             }
-            if(this.options.rounded == "xl"){
+            if(this.options.rounded === "xl"){
                 this.classList.push(`rounded-xl`)
                 return;
             }
-            if(this.options.rounded == "2xl"){
+            if(this.options.rounded === "2xl"){
                 this.classList.push(`rounded-2xl`)
                 return;
             }

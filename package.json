@@ -1,6 +1,7 @@
 {
   "name": "absolute-placer",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "homepage": "htttps://tramvai0105.io/absolute-placer",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -21,14 +22,15 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "typescript": "^5.4.3",
+    "typescript": "^3.2.1",
     "web-vitals": "^3.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "tailwindcss": "^3.4.3"
   }
 }

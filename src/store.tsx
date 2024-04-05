@@ -1,8 +1,4 @@
-import React from "react"
-import ReactDOM from "react-dom"
 import { makeAutoObservable } from "mobx"
-import { observer } from "mobx-react-lite"
-import Piece from "./entities/Piece";
 import ReactDomServer from 'react-dom/server';
 import { PieceCommutationOptions, PieceOptions, defaultCommutation } from './types';
 import RenderPiece from "./entities/RenderPiece";
@@ -101,7 +97,7 @@ class Store {
     addStyleRule(rule: string){
         let rules = Array.from(this.styleSheet.cssRules);
         for (let i = 0; i < rules.length; i++) {
-            if(rules[i].cssText.split("{")[0].slice(1) == rule.split("{")[0].slice(1)){
+            if(rules[i].cssText.split("{")[0].slice(1) === rule.split("{")[0].slice(1)){
                 return;
             }          
         }
@@ -128,7 +124,7 @@ class Store {
 
     get(id: number){
         for (let i = 0; i < this.elements.length; i++) {
-            if(this.elements[i].props.id == id){
+            if(this.elements[i].props.id === id){
                 return this.elements[i]
             }
         }
@@ -156,7 +152,7 @@ class Store {
             let props = this.elements[id].props;
             props.left = `${x}px`;
             props.top = `${y}px`;
-            this.elements = this.elements.map((el, i)=> (i == id) ? {...el, props: props} : {...el})
+            this.elements = this.elements.map((el, i)=> (i === id) ? {...el, props: props} : {...el})
         }
     }
 
@@ -164,7 +160,7 @@ class Store {
         if(this.elements[id]){
             let props = this.elements[id].props;
             props.left = `${x}px`;
-            this.elements = this.elements.map((el, i)=> (i == id) ? {...el, props: props} : {...el})
+            this.elements = this.elements.map((el, i)=> (i === id) ? {...el, props: props} : {...el})
         }
     }
 
@@ -172,7 +168,7 @@ class Store {
         if(this.elements[id]){
             let props = this.elements[id].props;
             props.top = `${x}px`;
-            this.elements = this.elements.map((el, i)=> (i == id) ? {...el, props: props} : {...el})
+            this.elements = this.elements.map((el, i)=> (i === id) ? {...el, props: props} : {...el})
         }
     }
 
@@ -185,7 +181,7 @@ class Store {
             opts.z = z;
             let props = this.elements[id].props;
             props.opt = opts;
-            this.elements = this.elements.map((el, i)=> (i == id) ? {...el, props: props} : {...el})
+            this.elements = this.elements.map((el, i)=> (i === id) ? {...el, props: props} : {...el})
         }
     }
 
@@ -193,7 +189,7 @@ class Store {
         if(this.elements[id]){
             let props = this.elements[id].props;
             props.opt = opt;
-            this.elements = this.elements.map((el, i)=> (i == id) ? {...el, props: props} : {...el})
+            this.elements = this.elements.map((el, i)=> (i === id) ? {...el, props: props} : {...el})
         }
     }
 
@@ -202,14 +198,14 @@ class Store {
             let props = this.elements[id].props;
             if(props.opt)
             props.opt.rotation = deg;
-            this.elements = this.elements.map((el, i)=> (i == id) ? {...el, props: props} : {...el})
+            this.elements = this.elements.map((el, i)=> (i === id) ? {...el, props: props} : {...el})
         }
     }
 
     saveElement(element : HTMLDivElement){
         let id = Number(element.id.split("_")[1]);
         this.elements = this.elements.map(el=>{
-            if(el.props.id == id){
+            if(el.props.id === id){
                 return {props: {
                     id: id,
                     top: element.style.top,
@@ -249,7 +245,7 @@ class Store {
     }
 
     delete(id: number){
-        this.elements = this.elements.filter((el, i)=> i != id);
+        this.elements = this.elements.filter((el, i)=> i !== id);
         this.elements = this.elements.map((el, id)=>{ let p =  el.props; p.id = id ; return {el, props: p}})
     }
 

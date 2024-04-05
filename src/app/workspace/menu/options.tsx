@@ -22,7 +22,7 @@ export default function MenuOptions({ id, close }: { id: number, close: () => vo
 
     function checkRadiusType(r: any) {
         // let s = ["sm", "md", "lg", "xl", "2xl", "full"];
-        if (r == "") {
+        if (r === "") {
             return "";
         }
         if (Number.isNaN(Number(r))) {
@@ -32,7 +32,7 @@ export default function MenuOptions({ id, close }: { id: number, close: () => vo
             console.log(r);
             return Number(r);
         }
-        if (typeof r == "undefined") {
+        if (typeof r === "undefined") {
             return undefined;
         }
     }
@@ -58,14 +58,14 @@ export default function MenuOptions({ id, close }: { id: number, close: () => vo
             <button onClick={close} className='absolute border-[1px] px-1 border-[#7C7A85] hover:bg-[#625F69] left-[100%] text-[12px] -translate-x-[130%] translate-y-[20%] border-'>X</button>
             <div className="flex flex-col text-[14px] h-full">
                 <div className='flex flex-row w-full gap-6 items-center'>
-                    {optPage == 0 ? <span>Options</span> : <></>}
-                    {optPage == 1 ? <span>Content</span> : <></>}
-                    {optPage == 0 ? <button onClick={() => setOptPage(1)} title='Content' className='border-b-[2px] border-x-[2px] rounded-b-md border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>cont</button> : <></>}
-                    {optPage == 1 ? <button onClick={() => setOptPage(0)} title='Options' className='border-b-[2px] border-x-[2px] rounded-b-md border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>opts</button> : <></>}
+                    {optPage === 0 ? <span>Options</span> : <></>}
+                    {optPage === 1 ? <span>Content</span> : <></>}
+                    {optPage === 0 ? <button onClick={() => setOptPage(1)} title='Content' className='border-b-[2px] border-x-[2px] rounded-b-md border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>cont</button> : <></>}
+                    {optPage === 1 ? <button onClick={() => setOptPage(0)} title='Options' className='border-b-[2px] border-x-[2px] rounded-b-md border-[#7C7A85] px-1 hover:bg-[#7C7A85]'>opts</button> : <></>}
                     {/* <input value={cur.name} spellCheck="false" onChange={(e)=>setCur(prev=>{return {...prev, name: e.target.value}})} 
                 className='bg-[#49474E] h-[] pl-1 w-[40%] border-[#7C7A85] border'/> */}
                 </div>
-                {optPage == 0 ?
+                {optPage === 0 ?
                     <div className="flex pt-2 flex-col gap-1 px-[3%]">
                         <div className='flex flex-row items-center w-full'>
                             <div className="flex flex-row gap-1">
@@ -103,14 +103,14 @@ export default function MenuOptions({ id, close }: { id: number, close: () => vo
                             <input spellCheck="false" value={cur?.rounded} onChange={(e) => setCur(prev => { return { ...prev, rounded: checkRadiusType(e.target.value) } })}
                                 className="bg-[#625F69] ml-auto pl-1 border border-[#7C7A85] w-[50px]" />
                             <div className='grid grid-cols-2'>
-                                <button title='Round top left' onClick={() => setRSides(rSides => { return { ...rSides, tl: !rSides.tl } })} className={clsx({ 'rounded-tl-md': rSides.tl, 'border-[#49474E]': typeof cur.rounded == "string", 'border-[#7C7A85]': typeof cur.rounded == "number" }, 'ml-auto border-l-[2px] text-[12px] border-t-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
-                                <button title='Round top right' onClick={() => setRSides(rSides => { return { ...rSides, tr: !rSides.tr } })} className={clsx({ 'rounded-tr-md': rSides.tr, 'border-[#49474E]': typeof cur.rounded == "string", 'border-[#7C7A85]': typeof cur.rounded == "number" }, 'ml-auto border-r-[2px] text-[12px] border-t-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
-                                <button title='Round bottom left' onClick={() => setRSides(rSides => { return { ...rSides, bl: !rSides.bl } })} className={clsx({ 'rounded-bl-md': rSides.bl, 'border-[#49474E]': typeof cur.rounded == "string", 'border-[#7C7A85]': typeof cur.rounded == "number" }, 'ml-auto border-l-[2px] text-[12px] border-b-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
-                                <button title='Round bottom right' onClick={() => setRSides(rSides => { return { ...rSides, br: !rSides.br } })} className={clsx({ 'rounded-br-md': rSides.br, 'border-[#49474E]': typeof cur.rounded == "string", 'border-[#7C7A85]': typeof cur.rounded == "number" }, 'ml-auto border-r-[2px] text-[12px] border-b-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
+                                <button title='Round top left' onClick={() => setRSides(rSides => { return { ...rSides, tl: !rSides.tl } })} className={clsx({ 'rounded-tl-md': rSides.tl, 'border-[#49474E]': typeof cur.rounded === "string", 'border-[#7C7A85]': typeof cur.rounded === "number" }, 'ml-auto border-l-[2px] text-[12px] border-t-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
+                                <button title='Round top right' onClick={() => setRSides(rSides => { return { ...rSides, tr: !rSides.tr } })} className={clsx({ 'rounded-tr-md': rSides.tr, 'border-[#49474E]': typeof cur.rounded === "string", 'border-[#7C7A85]': typeof cur.rounded === "number" }, 'ml-auto border-r-[2px] text-[12px] border-t-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
+                                <button title='Round bottom left' onClick={() => setRSides(rSides => { return { ...rSides, bl: !rSides.bl } })} className={clsx({ 'rounded-bl-md': rSides.bl, 'border-[#49474E]': typeof cur.rounded === "string", 'border-[#7C7A85]': typeof cur.rounded === "number" }, 'ml-auto border-l-[2px] text-[12px] border-b-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
+                                <button title='Round bottom right' onClick={() => setRSides(rSides => { return { ...rSides, br: !rSides.br } })} className={clsx({ 'rounded-br-md': rSides.br, 'border-[#49474E]': typeof cur.rounded === "string", 'border-[#7C7A85]': typeof cur.rounded === "number" }, 'ml-auto border-r-[2px] text-[12px] border-b-[2px] px-1 hover:bg-[#7C7A85] w-[15px] h-[15px]')}></button>
                             </div>
                         </div>
                     </div> : <></>}
-                {optPage == 1 ?
+                {optPage === 1 ?
                     <div className="flex pt-2 flex-col gap-2 px-[3%]">
                         <div className='flex flex-row w-full items-center'>
                             <div>
@@ -119,41 +119,41 @@ export default function MenuOptions({ id, close }: { id: number, close: () => vo
                             <div className="grid grid-cols-3 ml-4">
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "t"; a.hort = "l"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] border-l-[2px] border-t-[2px] rounded-tl-lg p-1'>
-                                    <Dot show={cur.textOpts.vert == "t" && cur.textOpts.hort == "l"} />
+                                    <Dot show={cur.textOpts.vert === "t" && cur.textOpts.hort === "l"} />
                                 </button>
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "t"; a.hort = "c"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] border-t-[2px] p-1'>
-                                    <Dot show={cur.textOpts.vert == "t" && cur.textOpts.hort == "c"} />
+                                    <Dot show={cur.textOpts.vert === "t" && cur.textOpts.hort === "c"} />
                                 </button>
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "t"; a.hort = "r"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] border-r-[2px] border-t-[2px] rounded-tr-lg p-1'>
-                                    <Dot show={cur.textOpts.vert == "t" && cur.textOpts.hort == "r"} />
+                                    <Dot show={cur.textOpts.vert === "t" && cur.textOpts.hort === "r"} />
                                 </button>
 
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "c"; a.hort = "l"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] border-l-[2px] p-1'>
-                                    <Dot show={cur.textOpts.vert == "c" && cur.textOpts.hort == "l"} />
+                                    <Dot show={cur.textOpts.vert === "c" && cur.textOpts.hort === "l"} />
                                 </button>
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "c"; a.hort = "c"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] p-1'>
-                                    <Dot show={cur.textOpts.vert == "c" && cur.textOpts.hort == "c"} />
+                                    <Dot show={cur.textOpts.vert === "c" && cur.textOpts.hort === "c"} />
                                 </button>
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "c"; a.hort = "r"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] border-r-[2px] p-1'>
-                                    <Dot show={cur.textOpts.vert == "c" && cur.textOpts.hort == "r"} />
+                                    <Dot show={cur.textOpts.vert === "c" && cur.textOpts.hort === "r"} />
                                 </button>
 
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "b"; a.hort = "l"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] border-b-[2px] border-l-[2px] rounded-bl-lg p-1'>
-                                    <Dot show={cur.textOpts.vert == "b" && cur.textOpts.hort == "l"} />
+                                    <Dot show={cur.textOpts.vert === "b" && cur.textOpts.hort === "l"} />
                                 </button>
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "b"; a.hort = "c"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] border-b-[2px]  p-1'>
-                                    <Dot show={cur.textOpts.vert == "b" && cur.textOpts.hort == "c"} />
+                                    <Dot show={cur.textOpts.vert === "b" && cur.textOpts.hort === "c"} />
                                 </button>
                                 <button onClick={(e) => setCur(prev => { let a = prev.textOpts; a.vert = "b"; a.hort = "r"; return { ...prev, textOpts: a } })}
                                     className='border-[#7C7A85] w-[12px] h-[12px] hover:bg-[#7C7A85] border-r-[2px] border-b-[2px] rounded-br-lg p-1'>
-                                    <Dot show={cur.textOpts.vert == "b" && cur.textOpts.hort == "r"} />
+                                    <Dot show={cur.textOpts.vert === "b" && cur.textOpts.hort === "r"} />
                                 </button>
                             </div>
                             <div className='ml-auto gap-4 flex'>

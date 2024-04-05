@@ -6,7 +6,7 @@ import CssClass from "./classButton";
 export default function CSSClasses({set, cur}:{set: React.Dispatch<React.SetStateAction<PieceOptions>> , cur: PieceOptions}) {
 
     const [curList, setCurList] = useState(cur.classes);
-    const [allList, setAllList] = useState(store.getRules());
+    const [allList] = useState(store.getRules());
 
     useEffect(()=>{
         set(prev=>{return{...prev, classes: curList}});
@@ -17,7 +17,7 @@ export default function CSSClasses({set, cur}:{set: React.Dispatch<React.SetStat
     }
 
     function removeClass(name: string){
-        setCurList(prev=>{if(prev){return prev.filter(el=>name != el)}else{return []}});
+        setCurList(prev=>{if(prev){return prev.filter(el=>name !== el)}else{return []}});
     }
 
     return (

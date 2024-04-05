@@ -1,13 +1,5 @@
 import { useEffect, useRef, useState } from "react"
 import store from "../../store"
-import CodeMirror from '@uiw/react-codemirror';
-import { html } from "@codemirror/lang-html"
-import { css } from "@codemirror/lang-css"
-import clsx from "clsx";
-
-enum Mode {
-    html, css
-}
 
 export default function ConfigMenu({ close }: { close: React.Dispatch<React.SetStateAction<boolean>> }) {
 
@@ -30,7 +22,7 @@ export default function ConfigMenu({ close }: { close: React.Dispatch<React.SetS
             first.current = false;
             return;
         }
-        if (infoText != "") {
+        if (infoText !== "") {
             setShowInfo(true)
             return;
         }
