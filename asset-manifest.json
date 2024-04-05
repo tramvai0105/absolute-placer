@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/absolute-placer/static/css/main.d4a1b694.css",
+    "main.js": "/absolute-placer/static/js/main.634a2cc5.js",
+    "static/media/rot.svg": "/absolute-placer/static/media/rot.98a6d476697a6b0208f76f823e84cf39.svg",
+    "index.html": "/absolute-placer/index.html",
+    "static/media/dot.svg": "/absolute-placer/static/media/dot.955df3ec0a676cab4d2b.svg",
+    "static/media/dotW.svg": "/absolute-placer/static/media/dotW.e406a5794e16c2f352f1.svg",
+    "static/media/dotEdgeless.svg": "/absolute-placer/static/media/dotEdgeless.b26e575deba6558f58eb489d8f655e40.svg",
+    "static/media/dotHidden.svg": "/absolute-placer/static/media/dotHidden.0dda800f6a372eae1eab4838f3b2dd97.svg",
+    "main.d4a1b694.css.map": "/absolute-placer/static/css/main.d4a1b694.css.map",
+    "main.634a2cc5.js.map": "/absolute-placer/static/js/main.634a2cc5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d4a1b694.css",
+    "static/js/main.634a2cc5.js"
+  ]
+}
